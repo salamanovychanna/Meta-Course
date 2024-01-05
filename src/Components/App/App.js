@@ -1,9 +1,14 @@
-import './App.css';
+import Footer from "../Footer";
+import Header from "../Header";
+import MainRoutes from "../MainRoutes/MainRoutes.jsx";
+import "./App.css";
 
 function App() {
   return (
     <>
-      Homepage
+      <Header />
+      <MainRoutes />
+      <Footer />
     </>
   );
 }
