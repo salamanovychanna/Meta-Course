@@ -1,8 +1,8 @@
 const Profile = () => {
     return (
-        <div>
+        <main  style={{minHeight: '90vh'}}>
             profile page
-        </div>
+        </main>
     );
 };
 

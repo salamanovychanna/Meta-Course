@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import CallToAction from "../CallToAction";
 
 const Home = () => {
-    return (
-        <div>
-            home page
-        </div>
-    );
+  return (
+    <main style={{ minHeight: "90vh" }}>
+      <CallToAction />
+    </main>
+  );
 };
 
 export default Home;

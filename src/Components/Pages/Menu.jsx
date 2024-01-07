@@ -2,9 +2,9 @@ import React from 'react';
 
 const Menu = () => {
     return (
-        <div>
+        <main  style={{minHeight: '90vh'}}>
             menu page
-        </div>
+        </main>
     );
 };
 

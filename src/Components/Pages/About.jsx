@@ -2,9 +2,9 @@ import React from 'react';
 
 const About = () => {
     return (
-        <div>
+        <main  style={{minHeight: '90vh'}}>
             about page
-        </div>
+        </main>
     );
 };
 

@@ -1,0 +1,32 @@
+.bgprimary{
+    background: #FFC700;
+}
+
+.bggreen{
+    background: #51724B;
+}
+
+.tblack{
+    color: #333333
+}
+
+.twhite{
+    color: #EDEFEE
+}
+
+.btn {
+    border: none;
+    padding: 19px 50px;
+    font-size: 18px;
+}
+
+.btn:hover{
+    transition: all 0.3s ease;
+    transition: all 0.5s ease-in-out;
+    color:#EDEFEE;
+    background: #FFC700;
+}
+
+.button:focus {
+    border:#EDEFEE solid 1px;
+}

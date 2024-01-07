@@ -7,3 +7,41 @@
   margin: 0px;
   padding: 0px;
 }
+h1, h2, h3, h4, h5, h6 {
+font-weight: 400px;
+color: #333333}
+
+h1 {
+  font-size: 36px;
+}
+h5{
+font-size: 17px;}
+
+h6 {
+  font-size: 15px;
+}
+
+p {
+  font-size: 14px;
+}
+
+li {
+  font-size: 18px;
+}
+
+span {
+  font-size: 12px;
+}
+
+section {
+  padding: 90px 125px;
+}
+
+@media (min-width:1080px) {
+  section {
+    padding: 90px 125px;
+  }
+}
+/* @media (min-width:800px) and (max-width:1080px) {
+  
+} */

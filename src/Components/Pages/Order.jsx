@@ -2,9 +2,9 @@ import React from 'react';
 
 const Order = () => {
     return (
-        <div>
+        <main  style={{minHeight: '90vh'}}>
             order page
-        </div>
+        </main>
     );
 };
 

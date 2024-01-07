@@ -2,9 +2,9 @@ import React from 'react';
 
 const Cart = () => {
     return (
-        <div>
+        <main  style={{minHeight: '90vh'}}>
             cart page
-        </div>
+        </main>
     );
 };
 
