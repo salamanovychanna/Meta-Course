@@ -5,47 +5,41 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="logo">
+      <div className="footer-logo">
         <Logo type="VERTICAL" />
       </div>
-      <div className="column">
+      <div className="footer-column">
         <h6>Doormat navigation</h6>
         <span>
-          <Link
-            style={{ textDecoration: "none", color: "#EDEFEE" }}
-            to="/about">
+          <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/">
             Home
           </Link>
         </span>
         <span>
           <Link
-            style={{ textDecoration: "none", color: "#EDEFEE" }}
-            to="/about">
+            style={{ textDecoration: "none", color: "#EDEFEE" }} to="/about">
             About
           </Link>
         </span>
         <span>
-          <Link
-            style={{ textDecoration: "none", color: "#EDEFEE" }}
-            to="/about">
+          <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/menu">
             Menu
           </Link>
         </span>
         <span>
           <Link
-            style={{ textDecoration: "none", color: "#EDEFEE" }}
-            to="/about">
+            style={{ textDecoration: "none", color: "#EDEFEE" }} to="/order">
             Order
           </Link>
         </span>
       </div>
-      <div className="column">
+      <div className="footer-column">
         <h6>Contact details</h6>
         <span>Adress</span>
         <span>Phone Number</span>
         <span>Email</span>
       </div>
-      <div className="column">
+      <div className="footer-column">
         <h6>Social media links</h6>
         <span>Instagram</span>
         <span>FaceBook</span>

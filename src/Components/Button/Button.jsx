@@ -1,9 +1,8 @@
 import './Button.css'
 
-const Button = ({children, bgColor="green", color='white'}) => {
-    console.log(`btn bg${bgColor} t${color}`)
+const Button = ({children, bgColor="green", color='white', className}) => {
     return (
-        <button className={`btn bg${bgColor} t${color}`}>
+        <button className={`btn bg${bgColor} t${color} ${className}`}>
             {children}
         </button>
     );

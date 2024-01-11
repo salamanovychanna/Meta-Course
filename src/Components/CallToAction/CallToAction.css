@@ -1,0 +1,27 @@
+.call-to-action-img {
+    max-width: 40%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.call-to-action-content {
+    display: flex;
+    justify-content: space-between;
+    min-height: 60vh;
+    max-width: 1280px;
+}
+
+.call-to-action {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.call-to-action-text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 40%;
+}

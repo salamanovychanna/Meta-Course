@@ -5,25 +5,24 @@ import Button from "../Button";
 import { useEffect, useState } from "react";
 
 const Header = () => {
-  const [smallWidth, setSmallWidth] = useState(false);
-  const isSmallWidth = () => {
-    if (window.innerWidth <= 800) {
-      setSmallWidth(true);
-    } else {
-      setSmallWidth(false);
-    }
-  };
-  window.addEventListener("resize", isSmallWidth);
-  useEffect(() => {
-    isSmallWidth()
-}, []);
+  const [modalNav, setModalNav] = useState(false)
+//   const isSmallWidth = () => {
+//     if (window.innerWidth <= 800) {
+//       setSmallWidth(true);
+//     } else {
+//       setSmallWidth(false);
+//     }
+//   };
+//   window.addEventListener("resize", isSmallWidth);
+//   useEffect(() => {
+//     isSmallWidth()
+// }, []);
   return (
     <header className="header">
-      <div className="content">
+      <div className="header-content">
         <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to='/'>
         <Logo /></Link>
-        {smallWidth ? (
-          <button className="no-btn">
+          <button onClick={()=>setModalNav(prev=>!prev)} className={'header-no-btn'}>
             <svg
               width="42"
               height="21"
@@ -31,49 +30,48 @@ const Header = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M0 0H42V3H0V0Z"
                 fill="#EDEFEE"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M0 9H42V12H0V9Z"
                 fill="#EDEFEE"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M0 18H42V21H0V18Z"
                 fill="#EDEFEE"
               />
             </svg>
           </button>
-        ) : (
-          <nav className="nav">
-            <li className="nav-link">
+          <nav  className={`header-nav ${modalNav ? 'header-nav-absolute' : 'header-none'}`}>
+            <li className="header-nav-link">
               <Link
                 style={{ textDecoration: "none", color: "#EDEFEE" }}
                 to="/about">
                 About
               </Link>
             </li>
-            <li className="nav-link">
+            <li className="header-nav-link">
               <Link
                 style={{ textDecoration: "none", color: "#EDEFEE" }}
                 to="/menu">
                 Menu
               </Link>
             </li>
-            <li className="nav-link">
+            <li className="header-nav-link">
               <Link
                 style={{ textDecoration: "none", color: "#EDEFEE" }}
                 to="/cart">
                 Cart
               </Link>
             </li>
-            <li className="nav-link">
+            <li className="header-nav-link">
               <Link
                 style={{ textDecoration: "none", color: "#EDEFEE" }}
                 to="/order">
@@ -81,8 +79,7 @@ const Header = () => {
               </Link>
             </li>
           </nav>
-        )}
-        {smallWidth ? null : <Button>Login</Button>}
+          <Button className={`header-login-btn ${modalNav ? 'header-login-absolute' : 'header-none'}`}>Login</Button>
       </div>
     </header>
   );

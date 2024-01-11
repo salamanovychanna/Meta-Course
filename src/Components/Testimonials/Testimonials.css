@@ -1,0 +1,54 @@
+.testimonials-review-card-header-profile {
+    display: flex;
+    align-items: center;
+
+}
+
+.testimonials-avatar-img {
+    height: 58px;
+    width: 58px;
+    object-fit: cover;
+    border-radius: 58px;
+}
+
+.testimonials-card-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.testimonials-review-card {
+    padding: 28px;
+    width: 31.5%;
+    background: #333333;
+}
+
+.testimonials-review-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 21px;
+}
+
+
+
+.testimonials-person-name {
+    color: white;
+    font-weight: 400;
+}
+
+.testimonials-text-review {
+    font-size: 15px;
+    color: #EDEFEE;
+    font-weight: 400;
+}
+
+.testimonials-content {
+    max-width: 1280px;
+}
+
+.testimonials-section {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
