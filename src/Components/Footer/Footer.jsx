@@ -22,6 +22,11 @@ const Footer = () => {
           </Link>
         </span>
         <span>
+          <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/booking">
+            Booking
+          </Link>
+        </span>
+        <span>
           <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/menu">
             Menu
           </Link>

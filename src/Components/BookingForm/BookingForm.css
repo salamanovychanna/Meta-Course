@@ -1,0 +1,48 @@
+.booking-form {
+    display: grid;
+    gap: 20px
+}
+
+.booking-form-element {
+    height: 80px;
+    background: #EDEFEE;
+    padding: 22px;
+    border: none;
+    width: 100%;
+}
+
+.booking-form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+
+}
+
+.booking-form-date {
+    border: none;
+    background: none;
+    padding: 22px 22px 22px 125px;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+.booking-form-input-container{
+position:relative;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    border:none;
+    outline:none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}

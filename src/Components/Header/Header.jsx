@@ -67,8 +67,8 @@ const Header = () => {
             <li className="header-nav-link">
               <Link
                 style={{ textDecoration: "none", color: "#EDEFEE" }}
-                to="/cart">
-                Cart
+                to="/booking">
+                Booking
               </Link>
             </li>
             <li className="header-nav-link">

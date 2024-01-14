@@ -1,8 +1,8 @@
 import './Button.css'
 
-const Button = ({children, bgColor="green", color='white', className}) => {
+const Button = ({children, bgColor="green", color='white', className, type}) => {
     return (
-        <button className={`btn bg${bgColor} t${color} ${className}`}>
+        <button type={type} className={`btn bg${bgColor} t${color} ${className}`}>
             {children}
         </button>
     );
