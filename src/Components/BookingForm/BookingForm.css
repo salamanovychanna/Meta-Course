@@ -1,48 +1,91 @@
 .booking-form {
     display: grid;
-    gap: 20px
+    gap: 40px
 }
 
 .booking-form-element {
-    height: 80px;
-    background: #EDEFEE;
-    padding: 22px;
+    background: none;
     border: none;
     width: 100%;
+    padding: 22px 22px 22px 125px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 16px;
+}
+
+.booking-form-element:focus {
+    outline: none;
 }
 
 .booking-form-select {
+    border: 0px solid;
     -webkit-appearance: none;
     -moz-appearance: none;
     text-indent: 1px;
     text-overflow: '';
-
+    outline: none;
+    
 }
 
+
 .booking-form-date {
+    border: 0px solid;
     border: none;
     background: none;
     padding: 22px 22px 22px 125px;
     width: 100%;
     height: 100%;
-    position:absolute;
-    top:0px;
-    left:0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 16px;
 }
-.booking-form-input-container{
-position:relative;
+
+.booking-form-container-active {
+    background: #EDEFEE;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: 0px solid;
+    position: relative;
+    height: 80px;
 }
+
+.booking-form-container-active:focus {
+    outline: none;
+}
+
+
 input[type="date"]::-webkit-calendar-picker-indicator {
     background: transparent;
     bottom: 0;
     color: transparent;
     cursor: pointer;
     height: auto;
-    border:none;
-    outline:none;
+    border: none;
+    outline: none;
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
     width: auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.booking-form-label {
+    font-size: 18px;
+}
+
+.booking-form-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left:22px;
+    z-index: 4;
 }
