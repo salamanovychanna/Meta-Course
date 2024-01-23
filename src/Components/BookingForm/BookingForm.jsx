@@ -1,16 +1,58 @@
 import "./BookingForm.css";
+import {submitAPI, checkAvailability} from "../services";
 import Button from "../Button";
+import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const BookingForm = () => {
   const date = new Date();
+  const navigate = useNavigate();
   const futureDate = date.getDate() + 3;
   date.setDate(futureDate);
   const defaultValue = date.toLocaleDateString("en-CA");
 
-  const sumbitReservation =(e) => {
-    alert('submitted')
-  e.preventDefault()
-  
-}
+  const [loading, setLoading] = useState(false)
+  const [dateInput, setDateInput] = useState(defaultValue);
+  const [timeInput, setTimeInput] = useState(null);
+  const [guestsInput, setGuestsInput] = useState("1");
+  const [occasion, setOccasionInput] = useState(null);
+  const [formError, setFormError] = useState(false);
+
+  // const apiService = new ApiService;
+
+  // useCallback(async () => {
+  //   await bookService.getBooks().then((data) => {
+  //     dispatch(booksLoaded(data));
+  //   });
+  //   dispatch(booksLoading());
+  // });
+
+  console.log(dateInput)
+  const sumbitReservation = useCallback(async(e)=>{
+    e.preventDefault()
+    if (
+      !(
+        dateInput === defaultValue &&
+        timeInput === null &&
+        guestsInput === "1" &&
+        occasion === null
+       ) && Date.parse(dateInput) >= date
+    ) {
+      setFormError(false);
+      setLoading(true)
+      // await checkAvailability({date: dateInput, people: guestsInput}).then(data=>{
+      //   console.log(data, '2')
+      // })
+      await submitAPI().then((data)=>{
+        console.log(data,'3')
+      })
+      setLoading(false)
+      navigate("/confirmed");
+    } else {
+      setFormError(true);
+    }
+  })
+
   return (
     <form className="booking-form" onSubmit={sumbitReservation}>
       <label for="res-date">Choose date</label>
@@ -31,14 +73,16 @@ const BookingForm = () => {
           className="booking-form-element booking-form-date"
           type="date"
           id="res-date"
-          defaultValue={defaultValue}
+          onChange={(e) => setDateInput(e.target.value)}
+          value={dateInput}
+          required
         />
       </div>
       <label className="booking-form-label" htmlFor="res-time">
         Choose time
       </label>
       <div className="booking-form-container-active">
-      <svg
+        <svg
           className="booking-form-icon"
           width="35"
           height="35"
@@ -58,10 +102,12 @@ const BookingForm = () => {
             fill="black"
           />
         </svg>
-        
         <select
           className="booking-form-element booking-form-select"
-          id="res-time ">
+          id="res-time "
+          required
+          value={timeInput}
+          onChange={(e) => setTimeInput(e.target.value)}>
           <option>17:00</option>
           <option>18:00</option>
           <option>19:00</option>
@@ -113,13 +159,16 @@ const BookingForm = () => {
           min="1"
           max="10"
           id="guests"
+          value={guestsInput}
+          onChange={(e) => setGuestsInput(e.target.value)}
+          required
         />
       </div>
       <label className="booking-form-label" htmlFor="occasion">
         Occasion
       </label>
       <div className="booking-form-container-active">
-      <svg
+        <svg
           className="booking-form-icon"
           width="35"
           height="48"
@@ -134,16 +183,23 @@ const BookingForm = () => {
 
         <select
           className="booking-form-element booking-form-select"
-          id="occasion">
+          id="occasion"
+          value={occasion}
+          required
+          defaultValue={(e) => setOccasionInput(e.target.value)}>
           <option>No occasion</option>
           <option>Birthday</option>
           <option>Anniversary</option>
           <option>Engage</option>
         </select>
       </div>
-      <div><Button type="submit" bgColor="primary">
-        Reserve
-      </Button></div>
+      <div>
+        <Button type="submit" bgColor="primary">
+          Reserve
+        </Button><br/>
+        {formError &&<span style={{marginTop:'10px', color:'#EE9972'}}>there is an error, please, try again</span>}
+        {loading && <span style={{marginTop:'10px', color:'#EE9972'}}>loading...</span>}
+      </div>
     </form>
   );
 };

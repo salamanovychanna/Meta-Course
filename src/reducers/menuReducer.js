@@ -38,6 +38,7 @@ const menuReducer = createSlice({
         console.log(state, action)
       return state;
     },
+    
   },
 });
 
