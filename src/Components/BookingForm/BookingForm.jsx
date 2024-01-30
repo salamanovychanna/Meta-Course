@@ -13,9 +13,9 @@ const BookingForm = () => {
 
   const [loading, setLoading] = useState(false)
   const [dateInput, setDateInput] = useState(defaultValue);
-  const [timeInput, setTimeInput] = useState(null);
+  const [timeInput, setTimeInput] = useState(undefined);
   const [guestsInput, setGuestsInput] = useState("1");
-  const [occasion, setOccasionInput] = useState(null);
+  const [occasion, setOccasionInput] = useState(undefined);
   const [formError, setFormError] = useState(false);
 
   // const apiService = new ApiService;
@@ -33,9 +33,9 @@ const BookingForm = () => {
     if (
       !(
         dateInput === defaultValue &&
-        timeInput === null &&
+        timeInput === undefined &&
         guestsInput === "1" &&
-        occasion === null
+        occasion === undefined
        ) && Date.parse(dateInput) >= date
     ) {
       setFormError(false);
@@ -55,7 +55,7 @@ const BookingForm = () => {
 
   return (
     <form className="booking-form" onSubmit={sumbitReservation}>
-      <label for="res-date">Choose date</label>
+      <label htmlFor="res-date">Choose date</label>
       <div className="booking-form-container-active">
         <svg
           className="booking-form-icon"
@@ -186,7 +186,7 @@ const BookingForm = () => {
           id="occasion"
           value={occasion}
           required
-          defaultValue={(e) => setOccasionInput(e.target.value)}>
+          onChange={(e) => setOccasionInput(e.target.value)}>
           <option>No occasion</option>
           <option>Birthday</option>
           <option>Anniversary</option>

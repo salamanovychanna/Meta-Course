@@ -6,7 +6,6 @@ import Profile from "../Pages/Profile";
 import Order from "../Pages/Order";
 import Booking from "../Pages/Booking";
 import Confirmed from "../Pages/Confirmed";
-import ScrollToTop from "../ScrollToTop";
 
 const MainRoutes = () => {
     return (
