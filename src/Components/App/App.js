@@ -1,4 +1,3 @@
-import { Router } from "react-router-dom";
 import Footer from "../Footer";
 import Header from "../Header";
 import MainRoutes from "../MainRoutes/MainRoutes.jsx";
@@ -6,11 +5,11 @@ import "./App.css";
 
 function App() {
   return (
-    <>
-      <Header />
+      <>
+        <Header />
         <MainRoutes />
-      <Footer />
-    </>
+        <Footer />
+      </>
   );
 }
 

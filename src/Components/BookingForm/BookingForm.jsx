@@ -4,18 +4,19 @@ import Button from "../Button";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BookingForm = () => {
+const BookingForm = ({navigateTo}) => {
   const date = new Date();
-  const navigate = useNavigate();
-  const futureDate = date.getDate() + 3;
-  date.setDate(futureDate);
+  console.log(date)
+  // // const navigate = useNavigate();
+  // const futureDate = (date.getDate());
+  // date.setDate(futureDate);
   const defaultValue = date.toLocaleDateString("en-CA");
 
   const [loading, setLoading] = useState(false)
   const [dateInput, setDateInput] = useState(defaultValue);
-  const [timeInput, setTimeInput] = useState(undefined);
-  const [guestsInput, setGuestsInput] = useState("1");
-  const [occasion, setOccasionInput] = useState(undefined);
+  const [timeInput, setTimeInput] = useState('');
+  const [guestsInput, setGuestsInput] = useState('');
+  const [occasion, setOccasionInput] = useState('');
   const [formError, setFormError] = useState(false);
 
   // const apiService = new ApiService;
@@ -29,14 +30,15 @@ const BookingForm = () => {
 
   console.log(dateInput)
   const sumbitReservation = useCallback(async(e)=>{
+    console.log(dateInput, Date.parse(dateInput +'T'+ timeInput))
     e.preventDefault()
+    console.log(Date.parse(dateInput + timeInput) >= new Date(), Date.parse(dateInput + timeInput))
     if (
       !(
-        dateInput === defaultValue &&
-        timeInput === undefined &&
-        guestsInput === "1" &&
-        occasion === undefined
-       ) && Date.parse(dateInput) >= date
+        timeInput === '' &
+        guestsInput === '' &
+        occasion === ''
+       ) & Date.parse(dateInput +'T'+ timeInput) >= new Date()
     ) {
       setFormError(false);
       setLoading(true)
@@ -47,7 +49,7 @@ const BookingForm = () => {
         console.log(data,'3')
       })
       setLoading(false)
-      navigate("/confirmed");
+      navigateTo("/confirmed");
     } else {
       setFormError(true);
     }
@@ -108,12 +110,13 @@ const BookingForm = () => {
           required
           value={timeInput}
           onChange={(e) => setTimeInput(e.target.value)}>
-          <option>17:00</option>
-          <option>18:00</option>
-          <option>19:00</option>
-          <option>20:00</option>
-          <option>21:00</option>
-          <option>22:00</option>
+          <option value="" disabled hidden>Time</option>
+          <option value='17:00'>17:00</option>
+          <option value='18:00'>18:00</option>
+          <option value='19:00'>19:00</option>
+          <option value='20:00'>20:00</option>
+          <option value='21:00'>21:00</option>
+          <option value='22:00'>22:00</option>
         </select>
       </div>
       <label className="booking-form-label" htmlFor="guests">
@@ -187,10 +190,11 @@ const BookingForm = () => {
           value={occasion}
           required
           onChange={(e) => setOccasionInput(e.target.value)}>
-          <option>No occasion</option>
-          <option>Birthday</option>
-          <option>Anniversary</option>
-          <option>Engage</option>
+          <option value="" disabled hidden>Occasion</option>
+          <option value='no-occasion'>No occasion</option>
+          <option value='birthday'>Birthday</option>
+          <option value='anniversary'>Anniversary</option>
+          <option value='engage'>Engage</option>
         </select>
       </div>
       <div>

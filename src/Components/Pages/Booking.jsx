@@ -1,14 +1,16 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import BookingForm from "../BookingForm";
 import "./Booking.css";
 
 const Booking = () => {
+  const navigateTo = useNavigate()
+  const i = 0
   return (
     <main className="booking-section">
       <div className="booking-content">
         <div className="booking-text-section">
           <h1 style={{ marginBottom: "40px" }}>Booking a table</h1>
-          <BookingForm />
+          <BookingForm navigateTo={navigateTo} />
         </div>
         <img
           className="booking-img"
