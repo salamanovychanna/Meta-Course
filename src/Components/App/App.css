@@ -63,6 +63,8 @@ section {
   }
 }
 
-/* @media (min-width:800px) and (max-width:1080px) {
-  
-} */
+@media (min-width:800px) and (max-width:1080px) {
+  section {
+    padding: 70px 70px;
+  }
+}

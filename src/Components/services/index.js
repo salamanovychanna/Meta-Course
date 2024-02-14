@@ -1,4 +1,31 @@
-import { useSelector } from "react-redux";
+const seededRandom = function (seed) {
+  var m = 2 ** 35 - 31;
+  var a = 185852;
+  var s = seed % m;
+  return function () {
+    return (s = (s * a) % m) / m;
+  };
+};
+
+export const fetchAPI = function (date) {
+  let result = [];
+  let random = seededRandom(date.getDate());
+
+  for (let i = 17; i <= 23; i++) {
+    if (random() < 0.5) {
+      result.push(i + ":00");
+    }
+    if (random() < 0.5) {
+      result.push(i + ":30");
+    }
+  }
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(result);
+      console.log(result)
+    }, 4000);
+  });
+};
 
 export const submitAPI = (formData) => {
   return new Promise((resolve, reject) => {
@@ -7,24 +34,3 @@ export const submitAPI = (formData) => {
     }, 3000);
   });
 };
-
-// export const checkAvailability = (checkingValue) => {
-//   return new Promise((resolve, reject) => {
-//     const state = useSelector((state) => state);
-//     console.log(state);
-//     setTimeout(() => {
-//       if (
-//         state.availableReservations.some(
-//           (item) => item.date === checkingValue.date
-//         ) ||
-//         state.availableReservations.some(
-//           (item) => item.maxPeople === checkingValue.maxPeople
-//         )
-//       ) {
-//         resolve(true);
-//       } else {
-//         reject(false);
-//       }
-//     }, 3000);
-//   });
-// };

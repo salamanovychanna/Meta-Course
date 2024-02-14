@@ -2,13 +2,15 @@
     width: 60%;
     height: 70%;
     object-fit: cover;
-    object-position: 80% 10%;
     position: absolute;
+    object-position: 70% 10%;
 }
 
 .project-description-img-1 {
-    left: 90px;
+    /* left: 90px; */
+    right:0px;
     bottom:0px;
+    object-position: 80% 10%;
     z-index:4;
     height: 55%;
 }
@@ -25,7 +27,7 @@
 }
 
 .project-description-content {
-    max-width: 1280px;
+    max-width: 1080px;
     display: flex;
     justify-content: space-between;
 

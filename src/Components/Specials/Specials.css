@@ -1,21 +1,23 @@
-.specials-section{
+.specials-section {
     display: flex;
     justify-content: center;
-    align-items:center;
-background: #333333;}
-.container-header{
-    display:flex
-}
-.specials-content{
-    max-width: 1280px;
-    display: flex;
-    flex-direction: column;
-    max-width: 1280px;
+    align-items: center;
+    background: #333333;
 }
 
-.specials-container-header{
+.container-header {
+    display: flex
+}
+
+.specials-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1080px;
+}
+
+.specials-container-header {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom:33px;
+    margin-bottom: 33px;
 }

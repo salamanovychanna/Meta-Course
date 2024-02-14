@@ -8,13 +8,26 @@
 .booking-content{
     max-width: 1030px;
     display: flex;
-justify-content: space-between;}
-
-.booking-text-section{
-    width: 40%;
+    justify-content: space-between;
+    padding: 0 7%;
+    width: 100%;
 }
+
+
 .booking-img{
  width: 50%;
  object-fit: cover;
  object-position: 20% center;
+}
+
+@media ( min-width:800px) {
+    .booking-text-section{
+        width: 40%;
+    }
+}
+
+@media (max-width:800px){
+    .booking-text-section{
+        width: 100%;
+    }
 }

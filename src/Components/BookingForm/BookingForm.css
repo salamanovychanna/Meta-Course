@@ -1,6 +1,7 @@
 .booking-form {
     display: grid;
-    gap: 40px
+    gap: 40px;
+    padding:0px;
 }
 
 .booking-form-element {
