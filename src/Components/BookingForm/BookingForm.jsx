@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 
 const BookingForm = ({ navigateTo }) => {
   const date = new Date();
-  
+
   const defaultValue = date.toLocaleDateString("en-CA");
 
   const [loading, setLoading] = useState(false);
@@ -13,21 +13,16 @@ const BookingForm = ({ navigateTo }) => {
   const [timeInput, setTimeInput] = useState("");
   const [guestsInput, setGuestsInput] = useState("");
   const [occasion, setOccasionInput] = useState("");
-  const [formError, setFormError] = useState(false);
+  const [formError, setFormError] = useState('');
 
   console.log(dateInput);
   const sumbitReservation = useCallback(async (e) => {
-    console.log(dateInput, Date.parse(dateInput + "T" + timeInput));
     e.preventDefault();
-    console.log(
-      Date.parse(dateInput + timeInput) >= new Date(),
-      Date.parse(dateInput + timeInput)
-    );
     if (
       !((timeInput === "") & (guestsInput === "") & (occasion === "")) &
-      (Date.parse(dateInput + "T" + timeInput) >= new Date())
+      (Date.parse(dateInput + "T" + timeInput) > Date.parse(new Date()))
     ) {
-      setFormError(false);
+      setFormError('');
       setLoading(true);
       let dateObject = new Date(dateInput);
       //script you've given doesn't work, so I imposed my own logic (fake api service)
@@ -38,13 +33,18 @@ const BookingForm = ({ navigateTo }) => {
       setLoading(false);
       navigateTo("/confirmed");
     } else {
-      setFormError(true);
+        if (!(Date.parse(dateInput + "T" + timeInput) > Date.parse(new Date()))) {
+          setFormError("You have selected a date that has already passed.");
+        }
+        else {
+          setFormError("There is an error, please, try again.")
+      }
     }
   });
 
   return (
     <form className="booking-form" onSubmit={sumbitReservation}>
-      <label htmlFor="res-date">Choose date</label>
+      <label className='booking-form-label' htmlFor="res-date">Choose date</label>
       <div className="booking-form-container-active">
         <svg
           className="booking-form-icon"
@@ -194,7 +194,7 @@ const BookingForm = ({ navigateTo }) => {
         </Button>
         <br />
         {formError && (
-          <span  style={{ marginTop: "10px", color: "#EE9972" }}>there is an error, please, try again</span>
+          <span  style={{ marginTop: "10px", color: "#EE9972" }}>{formError}</span>
         )}
         {loading && (
           <span style={{ marginTop: "10px", color: "#51724B" }}>

@@ -1,6 +1,8 @@
 .booking-form {
-    display: grid;
-    gap: 40px;
+    display:flex;
+    flex-direction: column;
+    /* display: grid;
+    gap: 40px; */
     padding:0px;
 }
 
@@ -51,6 +53,7 @@
     border: 0px solid;
     position: relative;
     height: 80px;
+    margin-bottom:15px;
 }
 
 .booking-form-container-active:focus {
@@ -81,6 +84,7 @@ input::-webkit-inner-spin-button {
 
 .booking-form-label {
     font-size: 18px;
+    margin-bottom: 15px;
 }
 
 .booking-form-icon {
@@ -90,3 +94,40 @@ input::-webkit-inner-spin-button {
     left:22px;
     z-index: 4;
 }
+
+
+@media (min-width: 480px) and (max-width:800px) {
+    .booking-form-icon{
+        transform: scale(0.9) translateY(-52%);
+        left: 28px;
+    }
+    .booking-form-element{
+        padding: 21px 21px 21px 90px;
+    }
+}
+
+
+
+@media (min-width: 280px) and (max-width:480px) {
+    .booking-form-icon{
+        transform: scale(0.8) translateY(-60%);
+        left: 15px;
+    }
+    .booking-form-element{
+        padding: 15px 15px 15px 80px;
+
+    }
+}
+
+@media (max-width:280px) {
+    .booking-form-icon{
+        transform: scale(0.8) translateY(-60%);
+        left: 10px;
+    }
+    .booking-form-element{
+        padding: 13px 13px 13px 65px;
+    }
+}
+
+
+

@@ -2,14 +2,14 @@
 
 const Logo = ({
   type,
-  scale = 1,
+  width = '200',
   colorLetters = "#FFC700",
   colorIcon = "colored",
 }) => {
   if (type === "HORISONTAL" || type === undefined) {
     return (
       <svg
-        width="200"
+        width={width}
         height="70"
         viewBox="0 0 200 70"
         fill="none"

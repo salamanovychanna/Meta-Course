@@ -17,17 +17,50 @@
 .btn {
     border: none;
     padding: 19px 50px;
-    font-size: 18px;
+    text-align: center;
     cursor: pointer;
+}
+
+@media (max-width:800px) and (max-width:650px) {
+    .btn{
+        padding: 18px 45px;
+    }
+}
+
+@media (max-width:650) and (max-width:480) {
+    .btn{
+        padding: 16px 40px;
+    }
+}
+
+@media (max-width:480) and (max-width:280) {
+    .btn{
+        padding: 14px 30px;
+    }
+}
+
+
+.bggreen:hover{
+    color:#333333;
+    background: #FFC700;
+}
+
+.bgprimary:hover{
+    color:#EDEFEE;
+    background: #51724B;
 }
 
 .btn:hover{
     transition: all 0.3s ease;
-    transition: all 0.5s ease-in-out;
-    color:#EDEFEE;
-    background: #FFC700;
 }
+
+
 
 .button:focus {
     border:#EDEFEE solid 1px;
+}
+
+
+.button-max-width{
+    width:100%;
 }

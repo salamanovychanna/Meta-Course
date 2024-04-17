@@ -1,8 +1,8 @@
 import './Button.css'
 
-const Button = ({children, bgColor="green", color='white', className, type}) => {
+const Button = ({children,w100=false,  bgColor="green", color='white', className, type}) => {
     return (
-        <button type={type} className={`btn bg${bgColor} t${color} ${className}`}>
+        <button type={type} className={`btn bg${bgColor} t${color} ${className} ${w100 ? 'button-max-width' : ''}`}>
             {children}
         </button>
     );

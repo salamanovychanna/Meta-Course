@@ -5,7 +5,7 @@ const Confirmed = () => {
     return (
         <section style={{height: '90vh'}}>
             <h1 style={{marginBottom:'20px'}}>Your reservation is confirmed!</h1>
-            <Link to='/menu'><Button>Go to menu</Button></Link>
+            <Link to='/'><Button>Go to homepage</Button></Link>
         </section>
     );
 };

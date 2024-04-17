@@ -6,8 +6,8 @@
 
 .card-meal {
     background: #fff;
-    /* display: flex; */
-    width: 30%;
+    width: 320px;
+    margin: 0 auto;
 }
 
 .card-meal-title-price {
@@ -36,4 +36,19 @@
     display: flex;
     color: black;
     align-items: center;
+}
+
+/* .slick-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+ } */
+
+ @media (max-width: 350px) {
+    .card-meal {
+        width:100%;
+    }
+    .card-meal-text-container {
+        padding: 20px 17px;
+    }
 }

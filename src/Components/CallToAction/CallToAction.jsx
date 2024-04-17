@@ -1,7 +1,23 @@
+import { useEffect, useState } from "react";
 import Button from "../Button";
 import "./CallToAction.css";
 
 const CallToAction = () => {
+
+  const [mediumWidth, setMediumWidth] = useState(false)
+  useEffect(()=>{
+    if (window.innerWidth <= 650){
+      setMediumWidth(true)
+    }
+  }, [])
+
+  window.addEventListener('resize', function(event) {
+    if (window.innerWidth <= 650){
+      setMediumWidth(true)
+    } else {
+      setMediumWidth(false)
+    }
+});
   return (
     <section className="call-to-action">
       <div className="call-to-action-content">
@@ -18,11 +34,11 @@ const CallToAction = () => {
             Reserve a table
           </Button>
         </div>
-        <img
+        {!mediumWidth && <img
           className="call-to-action-img"
           src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="cooking sushi process"
-        />
+        />}
       </div>
     </section>
   );

@@ -1,6 +1,69 @@
+import { useEffect, useState } from "react";
 import "./Testimonials.css";
+import Slider from 'react-slick'
 
 const Testimonials = () => {
+
+  const [smallWidth, setSmallWidth] = useState(false)
+  useEffect(()=>{
+    if (window.innerWidth <=350){
+      setSmallWidth(true)
+    }
+  }, [])
+
+  window.addEventListener('resize', function(event) {
+    if (window.innerWidth <=350){
+      setSmallWidth(true)
+    } else {
+      setSmallWidth(false)
+    }
+});
+  const sliderSetup = {
+    dots: false,
+    infinite: true,
+    vertical: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    // centerMode: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1080,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          // centerMode: true,
+          dots: false,
+          autoplay: true,
+          autoplaySpeed: 5000,
+        },
+      },
+      {
+        breakpoint: 750,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 4000,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 4000,
+          arrows: false,
+        },
+      }
+
+    ],
+  };
   return (
     <section className="testimonials-section">
       <div className="testimonials-content">
@@ -8,6 +71,7 @@ const Testimonials = () => {
           Testimonials
         </h1>
         <div className="testimonials-card-section">
+        <Slider {...sliderSetup}>
           <article className="testimonials-review-card">
             <div className="testimonials-review-card-header">
               <div className="testimonials-review-card-header-profile">
@@ -19,7 +83,7 @@ const Testimonials = () => {
                 />
                 <h4 className="testimonials-person-name">Serhii</h4>
               </div>
-              <svg
+              {!smallWidth && <svg
                 width="119"
                 height="21"
                 viewBox="0 0 119 21"
@@ -45,7 +109,7 @@ const Testimonials = () => {
                   d="M107.5 0L110.082 7.9463H118.437L111.678 12.8574L114.26 20.8037L107.5 15.8926L100.74 20.8037L103.322 12.8574L96.5628 7.9463H104.918L107.5 0Z"
                   fill="white"
                 />
-              </svg>
+              </svg>}
             </div>
             <p className="testimonials-text-review">
               Excellent food. Menu is extensive and seasonal to a particularly
@@ -65,7 +129,7 @@ const Testimonials = () => {
                 />
                 <h4 className="testimonials-person-name">Anna</h4>
               </div>
-              <svg
+              {!smallWidth && <svg
                 width="119"
                 height="21"
                 viewBox="0 0 119 21"
@@ -91,7 +155,7 @@ const Testimonials = () => {
                   d="M107.5 0L110.082 7.9463H118.437L111.678 12.8574L114.26 20.8037L107.5 15.8926L100.74 20.8037L103.322 12.8574L96.5628 7.9463H104.918L107.5 0Z"
                   fill="white"
                 />
-              </svg>
+              </svg>}
             </div>
             <p className="testimonials-text-review">
               I have to say, I enjoyed every single bite of the meal in Little
@@ -112,7 +176,7 @@ const Testimonials = () => {
                 />
                 <h4 className="testimonials-person-name">Max</h4>
               </div>
-              <svg
+              {!smallWidth && <svg
                 width="119"
                 height="21"
                 viewBox="0 0 119 21"
@@ -138,7 +202,7 @@ const Testimonials = () => {
                   d="M107.5 0L110.082 7.9463H118.437L111.678 12.8574L114.26 20.8037L107.5 15.8926L100.74 20.8037L103.322 12.8574L96.5628 7.9463H104.918L107.5 0Z"
                   fill="white"
                 />
-              </svg>
+              </svg>}
             </div>
             <p className="testimonials-text-review">
               This place is great! Atmosphere is chill and cool but the staff is
@@ -148,6 +212,7 @@ const Testimonials = () => {
               and some twists, and for their prices it’s 100% worth it.
             </p>
           </article>
+          </Slider>
         </div>
       </div>
     </section>

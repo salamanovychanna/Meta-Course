@@ -38,3 +38,9 @@
     width: 40%;
     overflow: hidden
 }
+
+@media (max-width: 800px) {
+    .project-description-text-section {
+        width: 100%;
+    }
+}

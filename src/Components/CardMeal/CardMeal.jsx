@@ -1,14 +1,32 @@
 import { Link } from "react-router-dom";
 import "./CardMeal.css";
+import { useEffect, useState } from "react";
 
 const CardMeal = ({ id, name, picture, price, description }) => {
+  const [smallWidth, setSmallWidth] = useState(false)
+  useEffect(()=>{
+    if (window.innerWidth <= 300){
+      setSmallWidth(true)
+    } else {
+      setSmallWidth(false)
+
+    }
+  }, [])
+
+  window.addEventListener('resize', function(event) {
+    if (window.innerWidth <= 300){
+      setSmallWidth(true)
+    } else {
+      setSmallWidth(false)
+    }
+});
   return (
-    <article className="card-meal">
+    <article className="card-meal" key={id}>
       <img className="card-meal-img" src={picture} alt={name} />
       <div className="card-meal-text-container">
         <div className="card-meal-title-price">
           <h3>{name}</h3>
-          <span className="card-meal-price">{price}$</span>
+          {!smallWidth && <span className="card-meal-price">{price}$</span>}
         </div>
         <p style={{marginBottom:'30px'}} className="card-mealdescription">{description}</p>
         <Link className="card-meal-order-button" to="/order">
