@@ -52,23 +52,19 @@
 
 @media (max-width:450px) {
     .footer {
-        display:inline-grid;
+        display: inline-grid;
         justify-content: center;
-        align-items:center;
+        align-items: center;
         padding: 14% 0;
 
     }
+
     .footer-column {
         text-align: center;
-        display:block;
+        display: block;
     }
+
     .footer-logo {
         margin: 0 0 15px 0;
     }
 }
-
-/* @media (width:450px) {
-    .footer {
-        width:100%
-    }
-} */

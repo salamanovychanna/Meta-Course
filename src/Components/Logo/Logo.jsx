@@ -1,8 +1,6 @@
-
-
 const Logo = ({
   type,
-  width = '200',
+  width = "200",
   colorLetters = "#FFC700",
   colorIcon = "colored",
 }) => {

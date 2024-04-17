@@ -2,7 +2,6 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import BookingForm from "./BookingForm";
 import "@testing-library/jest-dom";
 
-
 test("Renders the BookingForm button", () => {
   render(<BookingForm />);
   const headingElement = screen.getByText("Reserve");
@@ -23,7 +22,6 @@ describe("Time component", () => {
     render(<BookingForm />);
 
     expect(screen.getByText(/Choose date/i)).toBeInTheDocument();
-    // expect(screen.getByText()).toBeInTheDocument();
     expect(screen.getByDisplayValue(/2020/i)).toBeInTheDocument();
   });
 });
@@ -45,7 +43,7 @@ describe("validation testing", () => {
   });
 
   it("should show an error message if date, number of guests inputs are invalid, or date is in the past", async () => {
-    render(<BookingForm  />);
+    render(<BookingForm />);
 
     const pastDate = new Date();
     pastDate.setDate(pastDate.getDate() - 7);
@@ -53,9 +51,8 @@ describe("validation testing", () => {
     const dateInput = screen.getByLabelText("Choose date");
     fireEvent.change(dateInput, { target: { value: formattedPastDate } });
     const submitButton = screen.getByText("Reserve");
-    fireEvent.click(submitButton)
-    const err = await screen.findByText('there is an error, please, try again')
-    expect(err).toBeInTheDocument()
-    // await expect(errorMessage).toBeInTheDocument();
+    fireEvent.click(submitButton);
+    const err = await screen.findByText("there is an error, please, try again");
+    expect(err).toBeInTheDocument();
   });
 });

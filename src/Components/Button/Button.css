@@ -1,16 +1,16 @@
-.bgprimary{
+.bgprimary {
     background: #FFC700;
 }
 
-.bggreen{
+.bggreen {
     background: #51724B;
 }
 
-.tblack{
+.tblack {
     color: #333333
 }
 
-.twhite{
+.twhite {
     color: #EDEFEE
 }
 
@@ -22,45 +22,45 @@
 }
 
 @media (max-width:800px) and (max-width:650px) {
-    .btn{
+    .btn {
         padding: 18px 45px;
     }
 }
 
 @media (max-width:650) and (max-width:480) {
-    .btn{
+    .btn {
         padding: 16px 40px;
     }
 }
 
 @media (max-width:480) and (max-width:280) {
-    .btn{
+    .btn {
         padding: 14px 30px;
     }
 }
 
 
-.bggreen:hover{
-    color:#333333;
+.bggreen:hover {
+    color: #333333;
     background: #FFC700;
 }
 
-.bgprimary:hover{
-    color:#EDEFEE;
+.bgprimary:hover {
+    color: #EDEFEE;
     background: #51724B;
 }
 
-.btn:hover{
+.btn:hover {
     transition: all 0.3s ease;
 }
 
 
 
 .button:focus {
-    border:#EDEFEE solid 1px;
+    border: #EDEFEE solid 1px;
 }
 
 
-.button-max-width{
-    width:100%;
+.button-max-width {
+    width: 100%;
 }

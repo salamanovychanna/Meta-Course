@@ -11,7 +11,6 @@ const CardMealList = ({ cardsData }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    // centerMode: true,
     autoplay: true,
     autoplaySpeed: 2000,
     responsive: [
@@ -21,7 +20,6 @@ const CardMealList = ({ cardsData }) => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          // centerMode: true,
           dots: false,
           autoplay: true,
           autoplaySpeed: 5000,
@@ -45,8 +43,7 @@ const CardMealList = ({ cardsData }) => {
           autoplaySpeed: 4000,
           arrows: false,
         },
-      }
-
+      },
     ],
   };
   return (

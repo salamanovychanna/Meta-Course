@@ -3,23 +3,22 @@ import "./CardMeal.css";
 import { useEffect, useState } from "react";
 
 const CardMeal = ({ id, name, picture, price, description }) => {
-  const [smallWidth, setSmallWidth] = useState(false)
-  useEffect(()=>{
-    if (window.innerWidth <= 300){
-      setSmallWidth(true)
+  const [smallWidth, setSmallWidth] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth <= 300) {
+      setSmallWidth(true);
     } else {
-      setSmallWidth(false)
-
+      setSmallWidth(false);
     }
-  }, [])
+  }, []);
 
-  window.addEventListener('resize', function(event) {
-    if (window.innerWidth <= 300){
-      setSmallWidth(true)
+  window.addEventListener("resize", function (event) {
+    if (window.innerWidth <= 300) {
+      setSmallWidth(true);
     } else {
-      setSmallWidth(false)
+      setSmallWidth(false);
     }
-});
+  });
   return (
     <article className="card-meal" key={id}>
       <img className="card-meal-img" src={picture} alt={name} />
@@ -28,9 +27,14 @@ const CardMeal = ({ id, name, picture, price, description }) => {
           <h3>{name}</h3>
           {!smallWidth && <span className="card-meal-price">{price}$</span>}
         </div>
-        <p style={{marginBottom:'30px'}} className="card-mealdescription">{description}</p>
+        <p style={{ marginBottom: "30px" }} className="card-mealdescription">
+          {description}
+        </p>
         <Link className="card-meal-order-button" to="/order">
-          <span style={{ marginRight: "5px", fontSize: '15px', color:'black' }}>Order a delivery</span>
+          <span
+            style={{ marginRight: "5px", fontSize: "15px", color: "black" }}>
+            Order a delivery
+          </span>
           <svg
             width="24"
             height="21"

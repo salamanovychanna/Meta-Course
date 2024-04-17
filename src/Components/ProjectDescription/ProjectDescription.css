@@ -7,11 +7,10 @@
 }
 
 .project-description-img-1 {
-    /* left: 90px; */
-    right:0px;
-    bottom:0px;
+    right: 0px;
+    bottom: 0px;
     object-position: 80% 10%;
-    z-index:4;
+    z-index: 4;
     height: 55%;
 }
 

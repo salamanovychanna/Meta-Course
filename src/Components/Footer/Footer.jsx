@@ -17,12 +17,15 @@ const Footer = () => {
         </span>
         <span>
           <Link
-            style={{ textDecoration: "none", color: "#EDEFEE" }} to="/about">
+            style={{ textDecoration: "none", color: "#EDEFEE" }}
+            to="/about">
             About
           </Link>
         </span>
         <span>
-          <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/booking">
+          <Link
+            style={{ textDecoration: "none", color: "#EDEFEE" }}
+            to="/booking">
             Booking
           </Link>
         </span>
@@ -33,7 +36,8 @@ const Footer = () => {
         </span>
         <span>
           <Link
-            style={{ textDecoration: "none", color: "#EDEFEE" }} to="/order">
+            style={{ textDecoration: "none", color: "#EDEFEE" }}
+            to="/order">
             Order
           </Link>
         </span>

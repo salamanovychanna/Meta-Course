@@ -13,38 +13,37 @@ const BookingForm = ({ navigateTo }) => {
   const [timeInput, setTimeInput] = useState("");
   const [guestsInput, setGuestsInput] = useState("");
   const [occasion, setOccasionInput] = useState("");
-  const [formError, setFormError] = useState('');
+  const [formError, setFormError] = useState("");
 
-  console.log(dateInput);
   const sumbitReservation = useCallback(async (e) => {
     e.preventDefault();
     if (
       !((timeInput === "") & (guestsInput === "") & (occasion === "")) &
       (Date.parse(dateInput + "T" + timeInput) > Date.parse(new Date()))
     ) {
-      setFormError('');
+      setFormError("");
       setLoading(true);
       let dateObject = new Date(dateInput);
       //script you've given doesn't work, so I imposed my own logic (fake api service)
       fetchAPI(dateObject);
-      await submitAPI().then((data) => {
-        console.log(data, "3");
+      await submitAPI().then(() => {
       });
       setLoading(false);
       navigateTo("/confirmed");
     } else {
-        if (!(Date.parse(dateInput + "T" + timeInput) > Date.parse(new Date()))) {
-          setFormError("You have selected a date that has already passed.");
-        }
-        else {
-          setFormError("There is an error, please, try again.")
+      if (!(Date.parse(dateInput + "T" + timeInput) > Date.parse(new Date()))) {
+        setFormError("You have selected a date that has already passed.");
+      } else {
+        setFormError("There is an error, please, try again.");
       }
     }
   });
 
   return (
     <form className="booking-form" onSubmit={sumbitReservation}>
-      <label className='booking-form-label' htmlFor="res-date">Choose date</label>
+      <label className="booking-form-label" htmlFor="res-date">
+        Choose date
+      </label>
       <div className="booking-form-container-active">
         <svg
           className="booking-form-icon"
@@ -194,7 +193,9 @@ const BookingForm = ({ navigateTo }) => {
         </Button>
         <br />
         {formError && (
-          <span  style={{ marginTop: "10px", color: "#EE9972" }}>{formError}</span>
+          <span style={{ marginTop: "10px", color: "#EE9972" }}>
+            {formError}
+          </span>
         )}
         {loading && (
           <span style={{ marginTop: "10px", color: "#51724B" }}>

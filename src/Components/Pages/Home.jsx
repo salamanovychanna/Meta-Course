@@ -8,9 +8,9 @@ const Home = () => {
   return (
     <main style={{ minHeight: "90vh" }}>
       <CallToAction />
-      <Specials/>
-      <Testimonials/>
-      <ProjectDescription/>
+      <Specials />
+      <Testimonials />
+      <ProjectDescription />
     </main>
   );
 };

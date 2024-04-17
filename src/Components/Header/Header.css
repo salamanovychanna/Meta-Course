@@ -84,8 +84,9 @@
     .header {
         height: 70px;
     }
-    .header-nav-absolute{
-        top:69px;
+
+    .header-nav-absolute {
+        top: 69px;
     }
 }
 
@@ -93,7 +94,8 @@
     .header {
         height: 74px;
     }
-    .header-nav-absolute{
-        top:73px;
+
+    .header-nav-absolute {
+        top: 73px;
     }
 }

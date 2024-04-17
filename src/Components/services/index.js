@@ -22,12 +22,11 @@ export const fetchAPI = function (date) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(result);
-      console.log(result)
     }, 4000);
   });
 };
 
-export const submitAPI = (formData) => {
+export const submitAPI = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(true);

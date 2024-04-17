@@ -24,6 +24,7 @@ h6 {
   font-weight: 400;
   font-style: normal;
 }
+
 h1 {
   font-size: 36px;
 }
@@ -54,7 +55,7 @@ span {
   font-size: 12px;
 }
 
-button{
+button {
   font-size: 16px;
 }
 
@@ -64,8 +65,8 @@ section {
 
 
 
-@media (min-width:1080px){
-  section{
+@media (min-width:1080px) {
+  section {
     padding: 90px 5%;
   }
 }
@@ -128,7 +129,7 @@ section {
     font-size: 12px;
   }
 
-  button{
+  button {
     font-size: 15px;
   }
 
@@ -166,7 +167,7 @@ section {
     font-size: 11px;
   }
 
-  button{
+  button {
     font-size: 14px;
   }
 
@@ -203,7 +204,7 @@ section {
     font-size: 10px;
   }
 
-  button{
+  button {
     font-size: 13px;
   }
 }
@@ -237,12 +238,11 @@ section {
     font-size: 10px;
   }
 
-  button{
+  button {
     font-size: 12px;
   }
-  
-  a{
+
+  a {
     font-size: 11px;
   }
 }
-
