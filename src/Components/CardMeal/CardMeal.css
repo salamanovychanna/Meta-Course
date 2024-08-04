@@ -1,0 +1,49 @@
+.card-meal-img {
+    height: 150px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-meal {
+    background: #fff;
+    width: 320px;
+    margin: 0 auto;
+}
+
+.card-meal-title-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 21px;
+}
+
+.card-meal-text-container {
+    padding: 21px 27px;
+}
+
+.card-meal-price {
+    font-size: 20px;
+    color: #EE9972;
+}
+
+.card-meal-description {
+    margin-bottom: 28px;
+    color: #333333
+}
+
+.card-meal-order-button {
+    text-decoration: none;
+    display: flex;
+    color: black;
+    align-items: center;
+}
+
+@media (max-width: 350px) {
+    .card-meal {
+        width: 100%;
+    }
+
+    .card-meal-text-container {
+        padding: 20px 17px;
+    }
+}

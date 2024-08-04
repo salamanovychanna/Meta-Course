@@ -1,0 +1,101 @@
+.header {
+    background: #333333;
+    height: 90px;
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    margin: auto auto;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+}
+
+.header-nav {
+    display: inline-flex;
+    list-style-type: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.header-nav-link {
+    text-decoration: 'none';
+}
+
+.header-nav-link-login {
+    display: none;
+
+}
+
+.header-no-btn {
+    background: none;
+    border: none;
+}
+
+.header-login-btn {
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .header-nav-absolute {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 10% 10% 10% 10%;
+        top: 89px;
+        right: 0px;
+        background: #333333;
+    }
+
+    .header-nav-link-login {
+        display: block
+    }
+
+    .header-none {
+        display: none;
+    }
+
+    .header-login-btn {
+        display: none;
+    }
+
+    .header-login-absolute {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        top: 318px;
+        right: 10%;
+        background: #333333;
+    }
+}
+
+@media (min-width: 801px) {
+    .header-no-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+    .header {
+        height: 70px;
+    }
+
+    .header-nav-absolute {
+        top: 69px;
+    }
+}
+
+@media (min-width: 350px) and (max-width:480px) {
+    .header {
+        height: 74px;
+    }
+
+    .header-nav-absolute {
+        top: 73px;
+    }
+}

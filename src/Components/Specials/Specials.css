@@ -1,0 +1,26 @@
+.specials-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333333;
+}
+
+.container-header {
+    display: flex;
+    width: 100%;
+}
+
+.specials-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1080px;
+}
+
+.specials-container-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 33px;
+    align-items: center;
+}

@@ -1,0 +1,45 @@
+.project-description-img {
+    width: 60%;
+    height: 70%;
+    object-fit: cover;
+    position: absolute;
+    object-position: 70% 10%;
+}
+
+.project-description-img-1 {
+    right: 0px;
+    bottom: 0px;
+    object-position: 80% 10%;
+    z-index: 4;
+    height: 55%;
+}
+
+.project-description-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #51724B;
+}
+
+.project-description-text-section {
+    width: 50%;
+}
+
+.project-description-content {
+    max-width: 1080px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.project-description-img-section {
+    position: relative;
+    width: 40%;
+    overflow: hidden
+}
+
+@media (max-width: 800px) {
+    .project-description-text-section {
+        width: 100%;
+    }
+}
