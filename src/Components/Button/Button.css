@@ -6,8 +6,17 @@
     background: #51724B;
 }
 
+.bgred {
+    background: #EE9972;
+}
+
+
+.bgblack {
+    background: #333333;
+}
+
 .tblack {
-    color: #333333
+    color: #333333;
 }
 
 .twhite {
@@ -48,6 +57,11 @@
 .bgprimary:hover {
     color: #EDEFEE;
     background: #51724B;
+}
+
+.bgred:hover {
+    color: #EDEFEE;
+    background: #333333;
 }
 
 .btn:hover {

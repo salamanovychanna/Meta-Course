@@ -1,0 +1,73 @@
+.register-wrapper {
+    background-color: #333333;
+    box-sizing: border-box;
+    padding: 100px 10%;
+    overflow: hidden;
+}
+.register-wrapper * {
+    box-sizing: border-box;
+}
+
+.register-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.register-text-section {
+    width: 50%;
+    color: #EDEFEE;
+}
+
+.register-img {
+    width:40%;
+    object-fit: cover;
+    overflow: hidden;
+    /* height: 526.4px; */
+}
+
+.register-title {
+    margin-bottom: 20px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-label {
+    margin-bottom: 6px;
+}
+
+.register-input {
+    border: none;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 4px 9px;
+}
+
+.register-input :focus {
+    outline:none;  
+}
+
+.register-separator{
+    margin: 20px 0;
+    display:flex;
+}
+
+.register-separator hr {
+    border-top: 3px solid #bbb;
+    width: 40%;
+    margin: auto 0;
+}
+
+.register-separator p {
+    margin: 0 12px;
+}
+
+.register-button {
+    width: min-content;
+}
+
+.register-google-button {
+    margin-bottom: 16px;
+}

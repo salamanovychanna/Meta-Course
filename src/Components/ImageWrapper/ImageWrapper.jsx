@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Blurhash } from "react-blurhash";
 
-const ImageWrapper = ({srcString, classNameString, altString, hash, heightValue, widthValue}) => {
+const ImageWrapper = ({srcString, classNameString, altString, hash, heightValue, innerRef, widthValue}) => {
     const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(()=>{
@@ -20,6 +20,7 @@ const ImageWrapper = ({srcString, classNameString, altString, hash, heightValue,
             src={srcString} 
             className={classNameString}
             alt={altString}
+            ref={innerRef}
             /> 
         : 
             <Blurhash

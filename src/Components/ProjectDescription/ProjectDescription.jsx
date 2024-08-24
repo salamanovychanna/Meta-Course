@@ -30,8 +30,10 @@ const ProjectDescription = () => {
             the flavors of their hometown in Italy to the people of Chicago. The
             two brothers continue to oversee the Little Lemon restaurant, nearly
             thirty years later. <br />
-            {width === "big" ? (
-              <p>
+            
+          </p>
+          {width === "big" ? (
+              <p style={{ color: "white" }}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Distinctio mollitia quisquam accusamus sed magnam quasi
                 delectus. Fugit libero cum cupiditate animi aspernatur, iste,
@@ -43,7 +45,6 @@ const ProjectDescription = () => {
                 aliquid, nihil accusantium porro rerum eius voluptas sint illum!
               </p>
             ) : null}
-          </p>
         </div>
         {width === "big" ? (
           <div className="project-description-img-section">

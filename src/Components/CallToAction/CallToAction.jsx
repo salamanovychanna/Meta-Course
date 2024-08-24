@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "../Button";
 import "./CallToAction.css";
 import ImageWrapper from "../ImageWrapper/ImageWrapper"
+import { Link } from "react-router-dom";
 
 const CallToAction = () => {
   const [mediumWidth, setMediumWidth] = useState(false);
@@ -31,10 +32,11 @@ const CallToAction = () => {
               traditional recipes served with a modern twist.
             </p>
           </div>
-
+          <Link to="/booking">
           <Button bgColor="primary" color="black">
             Reserve a table
           </Button>
+          </Link>
         </div>
         {!mediumWidth && (
           <ImageWrapper

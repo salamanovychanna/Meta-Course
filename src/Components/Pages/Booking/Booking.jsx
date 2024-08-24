@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import BookingForm from "../BookingForm";
+import BookingForm from "../../BookingForm";
 import "./Booking.css";
 import { useEffect, useState } from "react";
-import ImageWrapper from "../ImageWrapper/ImageWrapper";
+import ImageWrapper from "../../ImageWrapper/ImageWrapper";
 
 const Booking = () => {
   const [deviceSize, changeDeviceSize] = useState(window.innerWidth);

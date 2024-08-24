@@ -1,0 +1,47 @@
+.new-password-wrapper {
+    background-color: #333333;
+    min-height: 100vh;
+    color:#EDEFEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-password-container {
+    max-width: 800px;
+}
+
+.new-password-form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-bottom: 25px;
+}
+
+.new-password-button {
+    width: fit-content;
+}
+
+.new-password-input {
+    border: none;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 4px 9px;
+    width:100%;
+}
+
+@media (min-width: 800px) {
+    .new-password-form { 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .new-password-button {
+        width: 100%;
+    }
+
+    .new-password-container {
+        width: 60%;
+    }
+}

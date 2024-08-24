@@ -26,11 +26,6 @@
     text-decoration: 'none';
 }
 
-.header-nav-link-login {
-    display: none;
-
-}
-
 .header-no-btn {
     background: none;
     border: none;
@@ -38,6 +33,10 @@
 
 .header-login-btn {
     display: block;
+}
+
+.header-small-width-link {
+    display: none;
 }
 
 @media (max-width: 800px) {
@@ -63,6 +62,11 @@
     .header-login-btn {
         display: none;
     }
+
+    .header-small-width-link {
+        display: block;
+    }
+    
 
     .header-login-absolute {
         display: flex;

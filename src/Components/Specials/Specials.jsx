@@ -5,6 +5,7 @@ import CardMealList from "../CardMealList";
 
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Specials = () => {
   const data = useSelector((state) => {
@@ -32,12 +33,12 @@ const Specials = () => {
       <div className="specials-content">
         <div className="specials-container-header">
           <h1 style={{ color: "white", fontWeight: "400" }}>Specials</h1>
-          {!smallWidth && <Button>Menu</Button>}
+          {!smallWidth && <Link to="/menu" style={{textDecoration:'none'}}><Button>Menu</Button></Link>}
         </div>
         <CardMealList cardsData={data} />
         {smallWidth && (
           <div style={{ marginTop: "20px" }}>
-            <Button w100={true}>Menu</Button>
+            <Link to="/menu" style={{textDecoration:'none'}}><Button w100={true}>Menu</Button></Link>
           </div>
         )}
       </div>

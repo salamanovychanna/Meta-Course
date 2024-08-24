@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../Logo/Logo";
 import "./Header.css";
 import Button from "../Button";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Header = () => {
   const [modalNav, setModalNav] = useState(false);
   const [iconWidth, setIconWidth] = useState("42");
   const [logoWidth, setLogoWidth] = useState("200");
+
+  const { currentUser } = useContext(AuthContext);
 
   const isSmallWidth = () => {
     if (window.innerWidth <= 280) {
@@ -31,6 +34,18 @@ const Header = () => {
   useEffect(() => {
     isSmallWidth();
   }, []);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setModalNav(false)
+  }, [location]);
+
+  if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/reset-password' || location.pathname === '/new-password') {
+    return null
+  }
+
+
 
   return (
     <header className="header">
@@ -69,17 +84,32 @@ const Header = () => {
           </svg>
         </button>
         <nav
-          className={`header-nav ${
-            modalNav ? "header-nav-absolute" : "header-none"
-          }`}>
-          <li className="header-nav-link" onClick={() => setModalNav(false)}>
-            <HashLink
-              smooth
-              style={{ textDecoration: "none", color: "#EDEFEE" }}
-              to="/#about">
-              About
-            </HashLink>
-          </li>
+          className={`header-nav ${modalNav ? "header-nav-absolute" : "header-none"}`}>
+            {/* first position of navigation */}
+          {
+            currentUser
+              ?
+              <li
+                className={`header-nav-link`}
+                onClick={() => setModalNav(false)}
+              >
+                <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/profile">
+                  Profile
+                </Link>
+              </li>
+              :
+              <li className="header-nav-link" onClick={() => setModalNav(false)}>
+                <HashLink
+                  smooth
+                  style={{ textDecoration: "none", color: "#EDEFEE" }}
+                  to="/#about">
+                  About
+                </HashLink>
+              </li>
+          }
+
+          {/* second position of navigation */}
+
           <li className="header-nav-link" onClick={() => setModalNav(false)}>
             <Link
               style={{ textDecoration: "none", color: "#EDEFEE" }}
@@ -87,22 +117,47 @@ const Header = () => {
               Menu
             </Link>
           </li>
-          <li className="header-nav-link" onClick={() => setModalNav(false)}>
-            <Link
-              style={{ textDecoration: "none", color: "#EDEFEE" }}
-              to="/booking">
-              Booking
-            </Link>
-          </li>
-          <li
-            className={`header-nav-link header-nav-link-login`}
-            onClick={() => setModalNav(false)}>
-            <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/">
-              Profile
-            </Link>
-          </li>
+
+          {/* third position of navigation */}
+
+          {
+            currentUser
+              ?
+              <li
+                className={`header-nav-link`}
+                onClick={() => setModalNav(false)}>
+                <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/reservations">
+                  Reservations
+                </Link>
+              </li>
+              :
+              <li
+                className={`header-nav-link`}
+                onClick={() => setModalNav(false)}>
+                <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/booking">
+                  Booking
+                </Link>
+              </li>
+          }
+
+          {
+            currentUser
+            ?
+            <li className="header-nav-link header-small-width-link" onClick={() => setModalNav(false)}>
+              <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/reservations">
+                  Booking
+                </Link>
+            </li>
+            :
+            <li className="header-nav-link header-small-width-link" onClick={() => setModalNav(false)}>
+              <Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/reservations">
+                  Register
+                </Link>
+            </li>
+          }
+
         </nav>
-        <Button className="header-login-btn">Login</Button>
+        {currentUser ? <Button className="header-login-btn"><Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/booking">Book a table</Link></Button> : <Button className="header-login-btn"><Link style={{ textDecoration: "none", color: "#EDEFEE" }} to="/register">Register</Link></Button>}
       </div>
     </header>
   );

@@ -7,10 +7,14 @@ const Button = ({
   color = "white",
   className,
   type,
+  onClick,
+  innerRef,
 }) => {
   return (
     <button
       type={type}
+      onClick={onClick}
+      ref={innerRef}
       className={`btn bg${bgColor} t${color} ${className} ${
         w100 ? "button-max-width" : ""
       }`}>

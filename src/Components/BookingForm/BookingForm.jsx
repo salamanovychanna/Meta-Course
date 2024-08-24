@@ -1,43 +1,49 @@
-import { useCallback, useState } from "react"
-import { submitAPI, fetchAPI } from "../services";
+import { useContext, useState } from "react"
 import Button from "../Button";
 import "./BookingForm.css";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { db } from "../../config/firebase";
+import { AuthContext } from "../../context/AuthProvider";
 
 const BookingForm = ({ navigateTo }) => {
-  const date = new Date();
-
-  const defaultValue = date.toLocaleDateString("en-CA");
+  const dateDefault = new Date();
+  const defaultValue = dateDefault.toLocaleDateString("en-CA");
 
   const [loading, setLoading] = useState(false);
   const [dateInput, setDateInput] = useState(defaultValue);
   const [timeInput, setTimeInput] = useState("");
   const [guestsInput, setGuestsInput] = useState("");
-  const [occasion, setOccasionInput] = useState("");
+  const [occasionInput, setOccasionInput] = useState("");
   const [formError, setFormError] = useState("");
+  const {currentUser } = useContext(AuthContext);
 
-  //used useCallBack earlier, but I don't find any reason to use it, so check later if nothing will be wrong
   const sumbitReservation = async (e) => {
     e.preventDefault();
-    if (
-      !((timeInput === "") & (guestsInput === "") & (occasion === "")) &
-      (Date.parse(dateInput + "T" + timeInput) > Date.parse(new Date()))
-    ) {
-      setFormError("");
-      setLoading(true);
-      let dateObject = new Date(dateInput);
-      //waiting 
-      fetchAPI(dateObject);
-      await submitAPI().then(() => {
-      });
-      setLoading(false);
-      navigateTo("/confirmed");
-    } else {
-      if (!(Date.parse(dateInput + "T" + timeInput) > Date.parse(new Date()))) {
-        setFormError("You have selected a date that has already passed.");
-      } else {
-        setFormError("There is an error, please, try again.");
-      }
+    const dateInputObject = new Date(Date.parse(dateInput + "T" + timeInput));
+
+    if ( (timeInput === "") || (guestsInput === "") || (occasionInput === "") ) {
+      setFormError("Please, enter data in each input field.")
     }
+
+    if (!(dateInputObject > Date.parse(new Date()))) {
+      setFormError("You have selected a date that has already passed.");
+      return;
+    }
+    
+    setFormError("");
+    setLoading(true);
+    try {
+      const reservation = {dateTimeUTC: Timestamp.fromDate(dateInputObject), userId: currentUser.uid, occasion: occasionInput, guestsCount: +guestsInput};
+      await addDoc(collection(db, 'reservations'), reservation)
+    } catch (error) {
+      console.log(error.message)
+      alert(error.message)
+      setLoading(false);
+      return;
+    }
+    setLoading(false);
+    navigateTo("/reservations");
+    
   };
 
   return (
@@ -176,16 +182,16 @@ const BookingForm = ({ navigateTo }) => {
         <select
           className="booking-form-element booking-form-select"
           id="occasion"
-          value={occasion}
+          value={occasionInput}
           required
           onChange={(e) => setOccasionInput(e.target.value)}>
           <option value="" disabled hidden>
             Occasion
           </option>
-          <option value="no-occasion">No occasion</option>
-          <option value="birthday">Birthday</option>
-          <option value="anniversary">Anniversary</option>
-          <option value="engage">Engage</option>
+          <option value="No occasion">No occasion</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Anniversary">Anniversary</option>
+          <option value="Engage">Engage</option>
         </select>
       </div>
       <div>
