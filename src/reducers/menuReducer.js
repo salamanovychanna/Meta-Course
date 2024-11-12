@@ -5,14 +5,6 @@ const menuReducer = createSlice({
   initialState: {
     value: [
       {
-        id: 1,
-        name: "Greek salad",
-        price: 6.99,
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur finibus magna nec dui ullamcorper pharetra.",
-        img: "https://www.wellplated.com/wp-content/uploads/2022/05/Greek-Salad-Recipe-Easy.jpg",
-      },
-      {
         id: 2,
         name: "Pita & Tzatziki",
         price: 15.99,
